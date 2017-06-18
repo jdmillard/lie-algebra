@@ -3,7 +3,7 @@
 % preamble, set properties here
 \usepackage{amsmath}  % for custom math
 \usepackage{graphicx} % for figures
-\usepackage{parskip}  % better loooking paragraphs
+\usepackage{parskip}  % better looking paragraphs
 
 
 \title{Over-Explicit Lie Algebra Guide}
@@ -23,7 +23,7 @@ This is my attempt at understanding Lie algebra.
 
 
 \section{Unit Circle}
-  This section covers Jacob White's first few presentation slides explaining 2D Lie algebra example. Condsider a point on the unit circle. The goal is to interpolate smoothly between two different points on the unit circle without using trigonometry.
+  This section covers Jacob White's first few presentation slides explaining 2D Lie algebra example. Consider a point on the unit circle. The goal is to interpolate smoothly between two different points on the unit circle without using trigonometry.
 
   \begin{equation}
     v_i = a_i + jb_i
@@ -47,7 +47,7 @@ This is my attempt at understanding Lie algebra.
     v(t) = e^{j\theta(t)} = \cos(\theta(t)) + j\sin(\theta(t)) = a(t) + jb(t)
   \end{equation}
 
-  We skipped to the answer using a known formula without touching the theory, but the principle is demonstrated. We can move smoothly along $\theta$, but represent the result in the orignal format (by inspection we know the $a$'s and $b$'s don't change linearly with time). In this case, transitioning back and forth between $\theta$ space and $v$ space is a matter of taking a natural log. Similar operations will be seen later.
+  We skipped to the answer using a known formula without touching the theory, but the principle is demonstrated. We can move smoothly along $\theta$, but represent the result in the original format (by inspection we know the $a$'s and $b$'s don't change linearly with time). In this case, transitioning back and forth between $\theta$ space and $v$ space is a matter of taking a natural log. Similar operations will be seen later.
 
 \section{2D Rotations}
   In the example above, we expressed a point $v$ in terms of $\theta$ which was linearly changing with respect to time. Clearly the same $\theta$ can parameterize a 2D rotation matrix:
@@ -57,7 +57,7 @@ This is my attempt at understanding Lie algebra.
                              \sin(\theta) & \cos(\theta) \end{matrix}\right]
   \end{equation}
 
-  Can we come up with a transition formula that takes us from the $\theta$ space to a roation matrix without using trigonometry? One might argue that the expression above is a perfectly valid transition formula despite the fact it uses trigonometry. Even if we permitted the use of basic trigonometric functions in this toy problem, briefly consider the case of 3D rotations. Let us define the smooth rotation over time as a single rotation angle about the axis of rotation (because it's intuitive to think about smooth changes). Clearly, a 3D version of the above expression would be very complicated and/or inadequate.
+  Can we come up with a transition formula that takes us from the $\theta$ space to a rotation matrix without using trigonometry? One might argue that the expression above is a perfectly valid transition formula despite the fact it uses trigonometry. Even if we permitted the use of basic trigonometric functions in this toy problem, briefly consider the case of 3D rotations. Let us define the smooth rotation over time as a single rotation angle about the axis of rotation (because it's intuitive to think about smooth changes). Clearly, a 3D version of the above expression would be very complicated and/or inadequate.
 
   We can use the following matrix representation of complex numbers. For this to be valid, it is important that $J^2 = -I$.
 
@@ -70,7 +70,7 @@ This is my attempt at understanding Lie algebra.
                              1 & 0  \end{matrix}\right]
   \end{equation}
 
-  Euler's formula with this subsitution yields
+  Euler's formula with this substitution yields
 
   \begin{equation}
     e^{J\theta} = I\cos(\theta) + J\sin(\theta) = \\
@@ -88,10 +88,10 @@ This is my attempt at understanding Lie algebra.
     J\theta = \ln(R)
   \end{equation}
 
-  Again, we skipped to the answer using a known formula (and a clever matrix substitution). This provides another example of the principle. We can move smoothly along $\theta$, but represent the result in a rotation matrix (which has very little rotational intution by looking at it). In this case, transitioning back and forth is a matter of taking a matrix natural log.
+  Again, we skipped to the answer using a known formula (and a clever matrix substitution). This provides another example of the principle. We can move smoothly along $\theta$, but represent the result in a rotation matrix (which has very little rotational intuition by looking at it). In this case, transitioning back and forth is a matter of taking a matrix natural log.
 
 \section{Lie Group vs. Lie Algebra}
-  We've covered some basic concepts with some simple exmaples. Certain elements (such as 2D rotation matrices) form a group. A group requires:
+  We've covered some basic concepts with some simple examples. Certain elements (such as 2D rotation matrices) form a group. A group requires:
   \begin{itemize}
     \item Closure. If $R_1$ and $R_2$ are members of the group, $R_1R_2$ is also a member.
     \item Associativity. $(R_1R_2)R_3 = R_1(R_2R_3)$
@@ -135,7 +135,7 @@ This is my attempt at understanding Lie algebra.
     R \approx I + X
   \end{equation}
 
-  where $X$ is the Lie algebra with the substituted value of $\theta$, the desired amount of rotation. Clearly, the result isn't a true rotation matrix and large values of $\theta$ will produce large inaccuracies. However, if the rotation is applied in smaller peices, the error can be decreased.
+  where $X$ is the Lie algebra with the substituted value of $\theta$, the desired amount of rotation. Clearly, the result isn't a true rotation matrix and large values of $\theta$ will produce large inaccuracies. However, if the rotation is applied in smaller pieces, the error can be decreased.
 
   \begin{equation}
     R \approx \left( I + \frac{X}{3} \right) \left( I + \frac{X}{3} \right) \left( I + \frac{X}{3} \right) = \left( I + \frac{X}{3} \right)^3
@@ -147,10 +147,10 @@ This is my attempt at understanding Lie algebra.
     R = \lim_{N\to\infty} \left( I + \frac{X}{N} \right)^N = \exp(X)
   \end{equation}
 
-  This is how one can use the Lie algebra to perform operations on a Lie group (manifold). The matrix exponential can be computationally expensive; see the Rodriquez Formula for simlifying the operation in the case of of skew symetric Lie algebras.
+  This is how one can use the Lie algebra to perform operations on a Lie group (manifold). The matrix exponential can be computationally expensive; see Rodrigues' formula for simplifying the operation in the case of of skew symmetric Lie algebras.
 
   (maybe add notes about Rodriquez Formula)
-  (add Python or Matlab exmaple for 2d)
+  (add Python or Matlab example for 2d)
   (add notes for 3d)
 
 
@@ -162,7 +162,5 @@ This is my attempt at understanding Lie algebra.
   % \end{figure}
   %
   % Figure \ref{fig:tag1} shows that...
-
-
 
 \end{document}
